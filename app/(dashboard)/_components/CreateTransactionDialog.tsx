@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -12,7 +13,6 @@ import {
   CreateTransactionSchema,
   CreateTransactionSchemaType,
 } from "@/schema/transaction";
-import { Dialog } from "@radix-ui/react-dialog";
 import { ReactNode } from "react";
 
 interface Props {
@@ -32,6 +32,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import CategoryPicker from "./CategoryPicker";
 
 function CreateTransactionDialog({ trigger, type }: Props) {
   const form = useForm<CreateTransactionSchemaType>({
@@ -92,6 +93,25 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                 </FormItem>
               )}
             />
+
+            <div className="flex items-center justify-between gap-2">
+              <FormField
+                control={form.control}
+                name="category"
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="mr-4">Category</FormLabel>
+                    <FormControl>
+                      <CategoryPicker type={type} />
+                    </FormControl>
+                    <FormDescription>
+                      Select a category for this transaction
+                    </FormDescription>
+                  </FormItem>
+                )}
+              />
+            </div>
           </form>
         </Form>
       </DialogContent>
