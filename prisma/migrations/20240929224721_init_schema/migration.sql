@@ -24,7 +24,7 @@ CREATE TABLE "Transaction" (
     "userId" TEXT NOT NULL,
     "type" TEXT NOT NULL DEFAULT 'income',
     "category" TEXT NOT NULL,
-    "caterogyIcon" TEXT NOT NULL
+    "categoryIcon" TEXT NOT NULL
 );
 
 -- CreateTable
