@@ -7,6 +7,7 @@ import { differenceInDays, startOfMonth } from "date-fns";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import StatsCards from "./StatsCards";
+import CategoriesStats from "./CategoriesStats";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Overview({ userSettings }: { userSettings: UserSettings }) {
@@ -41,6 +42,12 @@ function Overview({ userSettings }: { userSettings: UserSettings }) {
       </div>
       <div className="flex w-full flex-col gap-2 px-8">
         <StatsCards
+          userSettings={userSettings}
+          from={dateRange.from}
+          to={dateRange.to}
+        />
+
+        <CategoriesStats
           userSettings={userSettings}
           from={dateRange.from}
           to={dateRange.to}

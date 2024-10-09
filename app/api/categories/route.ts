@@ -22,7 +22,6 @@ export async function GET(request: Request) {
   }
 
   const type = queryParams.data;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const categories = await prisma.category.findMany({
     where: {
       userId: user.id,
